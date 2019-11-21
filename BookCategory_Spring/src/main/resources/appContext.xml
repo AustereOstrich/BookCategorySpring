@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="book1" class="com.matthewharrop.part1assignment1.Book">
+        <constructor-arg value="0001" type="java.lang.Long"/>
+        <constructor-arg value="123456789" type="java.lang.String"/>
+        <constructor-arg value="All Quiet on the Western Front" type="java.lang.String"/>
+        <constructor-arg value="9.99" type="java.lang.Float"/>
+    </bean>
+
+    <bean id="book2" class="com.matthewharrop.part1assignment1.Book">
+        <constructor-arg value="0002" type="java.lang.Long"/>
+        <constructor-arg value="234567891" type="java.lang.String"/>
+        <constructor-arg value="Eragon" type="java.lang.String"/>
+        <constructor-arg value="14.98" type="java.lang.Float"/>
+    </bean>
+
+    <bean id="book3" class="com.matthewharrop.part1assignment1.Book">
+        <constructor-arg value="0005" type="java.lang.Long"/>
+        <constructor-arg value="811238152" type="java.lang.String"/>
+        <constructor-arg value="Leviathan" type="java.lang.String"/>
+        <constructor-arg value="22.99" type="java.lang.Float"/>
+    </bean>
+
+
+    <bean id="blankBook" class="com.matthewharrop.part1assignment1.Book"/>
+
+    <bean id="category1" class="com.matthewharrop.part1assignment1.Category">
+        <property name="id" value="1"/>
+        <property name="name" value="First Category"/>
+        <property name="bookSet">
+                <set>
+                    <ref bean="book1"/>
+                    <bean class="com.matthewharrop.part1assignment1.Book">
+                        <property name="id" value="0004"/>
+                        <property name="isbn" value="515883485"/>
+                        <property name="price" value="12.00"/>
+                        <property name="title" value="Everybody Poops"/>
+                    </bean>
+                </set>
+        </property>
+    </bean>
+
+    <bean id="category2" class="com.matthewharrop.part1assignment1.Category">
+        <property name="id" value="2"/>
+        <property name="name" value="Second Category"/>
+        <property name="bookList">
+            <list>
+                <ref bean="book2"/>
+                <bean class="com.matthewharrop.part1assignment1.Book">
+                    <property name="id" value="0003"/>
+                    <property name="isbn" value="321654987"/>
+                    <property name="price" value="13.49"/>
+                    <property name="title" value="It"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="category3" class="com.matthewharrop.part1assignment1.Category">
+        <property name="id" value="3"/>
+        <property name="name" value="Third Category"/>
+        <property name="bookMap">
+            <map>
+                <entry key="1" value-ref="book3"/>
+                <entry key="2">
+                    <bean id="book6" class="com.matthewharrop.part1assignment1.Book">
+                        <property name="id" value="0006"/>
+                        <property name="isbn" value="153115135"/>
+                        <property name="price" value="14.44"/>
+                        <property name="title" value="The Hunger Games"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>
